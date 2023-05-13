@@ -1,22 +1,18 @@
 # syntax=docker/dockerfile:1
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/cpp/.devcontainer/base.Dockerfile
 
-# [Choice] Debian / Ubuntu version: debian-10, debian-9, ubuntu-20.04, ubuntu-18.04
-ARG VARIANT="buster"
-FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT} as base
-
-FROM base as clone1
+FROM alpine:latest as clone1
 WORKDIR repo
 RUN git clone https://github.com/zoocide/pts
 
-
-FROM base as clone2
+FROM alpine:latest as clone2
 WORKDIR workspaces/root
 RUN git clone --branch llvmorg-15.0.7 --depth 1 https://github.com/llvm/llvm-project.git
 
 
-
-FROM base
+# [Choice] Debian / Ubuntu version: debian-10, debian-9, ubuntu-20.04, ubuntu-18.04
+ARG VARIANT="buster"
+FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main" | tee -a /etc/apt/sources.list
