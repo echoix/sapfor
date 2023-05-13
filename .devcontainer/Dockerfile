@@ -8,12 +8,12 @@ FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT} as base
 FROM alpine/git:latest as clone1
 WORKDIR /repo
 RUN git clone https://github.com/zoocide/pts
-RUN ls /repo
+
 
 FROM alpine/git:latest as clone2
 WORKDIR /workspaces/root
 RUN git clone --branch llvmorg-15.0.7 --depth 1 https://github.com/llvm/llvm-project.git
-RUN ls /workspaces/root
+
 
 FROM base
 
@@ -42,4 +42,4 @@ EOF
 WORKDIR repo
 # RUN git clone https://github.com/zoocide/pts
 COPY --link --from=clone1 /repo /repo
-COPY --link --from=clone2 /workspaces/root /workspaces/root
+COPY --link --from=clone2 /workspaces/root /repo

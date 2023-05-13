@@ -1,7 +1,8 @@
 #!/bin/bash
 
-mkdir /workspaces/root/install
-mkdir /workspaces/root/build
+mkdir -p /workspaces/root/install
+mkdir -p /workspaces/root/build
+cp -r /repo/llvm-project /workspaces/root/llvm-project
 
 git submodule init
 git submodule update
