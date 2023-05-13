@@ -40,5 +40,5 @@ EOF
 # Get external tools.
 WORKDIR repo
 # RUN git clone https://github.com/zoocide/pts
-COPY --link --from=clone1 /repo/ /repo/
-COPY --link --from=clone2 /workspaces/root/ /workspaces/root/
+COPY --link --from=clone1 /repo /repo
+COPY --link --from=clone2 /workspaces/root /workspaces/root
