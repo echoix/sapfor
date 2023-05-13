@@ -5,11 +5,11 @@
 ARG VARIANT="buster"
 FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT} as base
 
-FROM alpine:latest as clone1
+FROM alpine/git:latest as clone1
 WORKDIR repo
 RUN git clone https://github.com/zoocide/pts
 
-FROM alpine:latest as clone2
+FROM alpine/git:latest as clone2
 WORKDIR workspaces/root
 RUN git clone --branch llvmorg-15.0.7 --depth 1 https://github.com/llvm/llvm-project.git
 
