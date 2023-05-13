@@ -7,6 +7,12 @@ set(BCL_NODEJS_SOCKET OFF CACHE BOOL "")
 set(PACKAGE_LLVM ON CACHE BOOL "")
 set(BUILD_TESTING ON CACHE BOOL "")
 set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "")
+# set(PACKAGE_LLVM ON CACHE BOOL "")
+set(LLVM_DIR /workspaces/root/install CACHE STRING "")
+set(PACKAGE_LLVM OFF CACHE BOOL "")
+set(LLVM_PROJECT_DIR /workspaces/root/llvm-project CACHE PATH "")
+set(PTS_EXECUTABLE /repo/pts/bin/pts.pl CACHE STRING "")
+
 
 set(BUILD_DYNA ON CACHE BOOL "")
 set(USE_JSON_BCL ON CACHE BOOL "")

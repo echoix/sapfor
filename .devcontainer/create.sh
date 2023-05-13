@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir /workspaces/root/install
+mkdir /workspaces/root/build
+
 git submodule init
 git submodule update
 git submodule foreach git fetch
