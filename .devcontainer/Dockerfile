@@ -31,9 +31,9 @@ RUN <<EOF
     echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
     sudo apt-get update
     sudo rm /usr/share/keyrings/kitware-archive-keyring.gpg
-    sudo apt-get install kitware-archive-keyring
+    sudo apt-get -y install kitware-archive-keyring
     sudo apt-get update
-    sudo apt-get install cmake
+    sudo apt-get -y install cmake
 EOF
 
 # WORKDIR workspaces/root
